@@ -41,9 +41,10 @@ class Solution:
             if target - i in some_array[ind+1:]:
                 return [some_array.index(i), some_array[ind+1:].index(target-i) + counter]
 
+# another way to solve this would be to find the index of i which has a matching target -i at another location. 
+# then reverse the list and search for the index that way to avoid .index finding the same index. 
 
 
-                
 
 def TwoSum_brute(some_array, target):
     counter = 0
