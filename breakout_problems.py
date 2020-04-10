@@ -1,3 +1,4 @@
+from math import ceil
 
 # Given a list of n numbers, determine if it contains any duplicate numbers.
 # Jessica Trinh
@@ -29,6 +30,8 @@
 # If not then False 
 
 # Option C:
+# Samir Ingle
+# we only need to find the first set of duplicates we can find
 # sort the list, check if the current item is the same as the preivous item
 
 
@@ -63,15 +66,17 @@ def checkDuplicates(new_list):
 # 	return middle
 # Code:
 
-def findMiddle():
-    current = self.head			# start at the head of the linked list
+def findMiddle(ll):
+    current = ll.head			# start at the head of the linked list
     ll_length = 0
     odd = False
+
     while current:				# while a node exists in the ll
         ll_length += 1			# add 1 to the length counter
         current = current.next		# move on to the next node 
+
     if ll_length % 2 != 0:			# if the LL is odd
-        middle = ceiling(ll_length/2)
+        middle = ceil(ll_length/2)
         odd = True
         return middle
     else:
