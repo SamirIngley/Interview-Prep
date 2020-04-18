@@ -66,8 +66,8 @@
 
 
 
-print('input matrix:\n9 8 7\n5 3 2\n6 6 7')
-print('------------------')
+# print('input matrix:\n9 8 7\n5 3 2\n6 6 7')
+# print('------------------')
 
 class Matrix_Rows_Columns():
     def __init__(self, matrix_string):
