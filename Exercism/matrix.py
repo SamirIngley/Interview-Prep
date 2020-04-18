@@ -30,8 +30,6 @@
 # 3. Boundaries
 # 4. Obeys assumptions on values
 
-
-
 # STEPS: 
 
 # 1. Reasonable test input:
@@ -41,9 +39,6 @@
 #output:
 
 # 2. Understand and solve the problem: 
-# For rows, identify the len of the row by finding the length from the first index to the 
-# first new line. These are your rows, create a new row with these numbers at the right index. 
-# For columns, identify and add a new column number after each newline
 
 # 3. Simplify the problem:
 # try only 1 number matrix 
@@ -57,17 +52,12 @@
 
 # 5. Write pseudocode:
 # rows:
-# set a counter for the number of characters before \n
-# check if char "\" exists in string 
-# while char != '\' 
-# return 
-# create a string with the numbers at every other place in the range of counter
-# prepend this string to the matrix string
+# split at the newline
+# iterate through each item in each new line
 
 # columns:
-# if first char, add 1 before string
-# else add 1 to counter
-# insert counter after \n
+# zip item in each row 
+
 
 # 6. Write code:
 # (below)
@@ -78,35 +68,33 @@
 
 print('input matrix:\n9 8 7\n5 3 2\n6 6 7')
 print('------------------')
-input = '9 8 7\n5 3 2\n6 6 7'
-# class add_RC(m8x_string):
 
-    # def init(self, m8x_string):
-        
+class Matrix_Rows_Columns():
+    def __init__(self, matrix_string):
+        self.__matrix_rows = [[int(item) for item in row.split(' ')] for row in matrix_string.split('\n')]
+        self.__matrix_columns = [list(column) for column in zip(*self.__matrix_rows)]
 
-def add_rows(m8x_string):
-    row_count = 0
-    row_string = ''
-    for char in m8x_string:
-        if char == ' ':
-            continue
-        if char == '\n':
-            break 
-        row_count += 1
-        # print('char:', char, 'row_count', row_count)
+    def rows(self, big_list=[]):
+        for item in range(len(self.__matrix_rows)):
+            # print(self.__matrix_rows[item])
+            for thing in self.__matrix_rows[item]:
+                big_list.append(thing)
+        print('rows: ', big_list)
+        return big_list
 
-    # print('final row count: ', row_count)
-    for i in range(1, row_count+1):
-        # print(i)
-        row_string += '{} '.format(str(i))
+    def columns(self, big_list=[]):
+        for item in range(len(self.__matrix_columns)):
+            # print(self.__matrix_columns[item])
+            for thing in self.__matrix_columns[item]:
+                big_list.append(thing)
+        print('columns: ', big_list)
+        return big_list
 
-    # print("row string ", row_string)
-    m8x_string = row_string + "\n" + m8x_string
-    print(m8x_string)
-    return m8x_string
-
-    # def add_columns(self):
 
 
 if __name__ == "__main__":
-    add_rows(input)
+    input = '9 8 7\n5 3 2\n6 6 7'
+    # add_rows(input)
+    mat = Matrix_Rows_Columns(input)
+    mat.rows()
+    mat.columns()
