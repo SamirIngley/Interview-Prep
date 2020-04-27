@@ -38,11 +38,11 @@ def medianTwoArrays(arr1, arr2):
                 i_arr1 += 1
                 i_arr2 += 1
 
-        if not len(arr1) >= 1+arr1[i_arr1]:
+        if not len(arr1) >= 1+i_arr1:
             counter +=1
             stack.append(arr2[i_arr2])
             i_arr2 += 1
-        elif not len(arr2) >= 1+arr2[i_arr2]:
+        elif not len(arr2) >= 1+i_arr2:
             counter += 1
             stack.append(arr1[i_arr1])
             i_arr1 += 1
