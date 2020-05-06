@@ -5,6 +5,9 @@
 # if not.. go on to the next letter.. if it is.. then that's the largest
 
 def palindromIterative(text, right=-1, left=0):
+    
+ ''' TIME COMPLEXITY: O(n) because the function changes time based on the size
+    of the input !!! ''' 
 
     max_len = 0
     curr_len = 0

@@ -11,6 +11,9 @@
 
 def zigZagCon(text, numrows):
 
+    ''' TIME COMPLEXITY: O(n) because the function changes time based on the size
+    of the input !!! ''' 
+
     # read every odd index character for each row. 
     counter = 0
     single_counter = 1
