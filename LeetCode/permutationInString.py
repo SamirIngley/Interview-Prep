@@ -44,7 +44,48 @@ def perms(s):
         
         return l
 
-newstring = [1,2,3,4,5,6]
+def itemInStr(item, yourstr):
+    ''' item we're looking for, yourstring we look in'''
 
-for p in perms(newstring):
-    print(p)
+    # stack is the length of the item we're looking for,
+    # we pull all the substrings from yourstring. 
+    stack = [None]*len(item)
+    found = False
+
+    # looping through the big string and adding to the stack
+    # which we need to pop and append (it's already the corect size for item we're looking for)
+    for i in yourstr:
+
+        # adding to the stack 
+        stack.pop(0)
+        stack.append(i)
+    
+        # if char at each index of stack and item match
+        for num in range(len(stack)):
+            if stack[num] == item[num]: 
+                if num == len(stack)-1:
+                    found = True
+                    return found, stack
+                else: continue
+            else: break
+    
+    return 1
+
+
+
+def permInStr(s1, s2):
+
+    permlist = [p for p in perms(s1)]
+    
+    for perm in permlist:
+        print(itemInStr(perm, s2))
+    
+    return 
+
+
+newstring = [1,2,3,4,5,6]
+checkme = [4,3]
+
+[print(p) for p in perms(newstring)]
+
+permInStr(checkme, newstring)
